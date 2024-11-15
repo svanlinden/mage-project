@@ -1,0 +1,105 @@
+blocks:
+- all_upstream_blocks_executed: true
+  color: null
+  configuration:
+    file_path: data_loaders/get_invoice_lines.py
+    file_source:
+      path: data_loaders/get_invoice_lines.py
+  downstream_blocks:
+  - totals
+  - top_products
+  executor_config: null
+  executor_type: local_python
+  has_callback: false
+  language: python
+  name: get invoice lines
+  retry_config: null
+  status: executed
+  timeout: null
+  type: data_loader
+  upstream_blocks: []
+  uuid: get_invoice_lines
+- all_upstream_blocks_executed: true
+  color: null
+  configuration:
+    file_path: transformers/totals.py
+    file_source:
+      path: transformers/totals.py
+  downstream_blocks:
+  - export_to_file
+  executor_config: null
+  executor_type: local_python
+  has_callback: false
+  language: python
+  name: totals
+  retry_config: null
+  status: executed
+  timeout: null
+  type: transformer
+  upstream_blocks:
+  - get_invoice_lines
+  uuid: totals
+- all_upstream_blocks_executed: true
+  color: null
+  configuration:
+    file_path: transformers/top_products.py
+    file_source:
+      path: transformers/top_products.py
+  downstream_blocks:
+  - export_to_file
+  executor_config: null
+  executor_type: local_python
+  has_callback: false
+  language: python
+  name: top products
+  retry_config: null
+  status: executed
+  timeout: null
+  type: transformer
+  upstream_blocks:
+  - get_invoice_lines
+  uuid: top_products
+- all_upstream_blocks_executed: true
+  color: null
+  configuration:
+    file_path: data_exporters/export_to_file.py
+    file_source:
+      path: data_exporters/export_to_file.py
+  downstream_blocks: []
+  executor_config: null
+  executor_type: local_python
+  has_callback: false
+  language: python
+  name: export to file
+  retry_config: null
+  status: executed
+  timeout: null
+  type: data_exporter
+  upstream_blocks:
+  - top_products
+  - totals
+  uuid: export_to_file
+cache_block_output_in_memory: false
+callbacks: []
+concurrency_config: {}
+conditionals: []
+created_at: '2024-11-15 09:46:12.524653+00:00'
+data_integration: null
+description: null
+executor_config: {}
+executor_count: 1
+executor_type: null
+extensions: {}
+name: world wide importers
+notification_config: {}
+remote_variables_dir: null
+retry_config: {}
+run_pipeline_in_one_process: false
+settings:
+  triggers: null
+spark_config: {}
+tags: []
+type: python
+uuid: world_wide_importers
+variables_dir: /home/src/mage_data/your_first_project
+widgets: []

@@ -59,13 +59,13 @@ default:
   MONGODB_DATABASE: database
   MONGODB_COLLECTION: collection
   # MSSQL
-  MSSQL_DATABASE: database
-  MSSQL_SCHEMA: schema
+  MSSQL_DATABASE: WideWorldImportersOLTP
+  MSSQL_SCHEMA: Sales
   MSSQL_DRIVER: "ODBC Driver 18 for SQL Server"
-  MSSQL_HOST: host
-  MSSQL_PASSWORD: password
+  MSSQL_HOST: world-wide-importers.database.windows.net
+  MSSQL_PASSWORD: X1#zD7!yRm$2kN
   MSSQL_PORT: 1433
-  MSSQL_USER: SA
+  MSSQL_USER: Stijn
   # MySQL
   MYSQL_DATABASE: database
   MYSQL_HOST: host
