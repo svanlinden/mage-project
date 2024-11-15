@@ -7,11 +7,7 @@ if 'data_exporter' not in globals():
 
 @data_exporter
 def export_data_to_file(data, data_2, **kwargs) -> None:
-    """
-    Template for exporting data to filesystem.
-
-    Docs: https://docs.mage.ai/design/data-loading#fileio
-    """
+    
     filepath = 'top_products.csv'
     FileIO().export(data, filepath)
 

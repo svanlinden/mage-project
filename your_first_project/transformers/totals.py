@@ -11,15 +11,12 @@ def transform(data, *args, **kwargs):
 
     today = '2016-05-31'
 
-    # First Transformation Block: Calculate overall totals
     data['TotalAmount'] = data['Quantity'] * data['UnitPrice']
 
-    # Calculate the total sales, total quantity, and total line profit
     total_sales = data['TotalAmount'].sum()
     total_quantity = data['Quantity'].sum()
     total_line_profit = data['LineProfit'].sum()
 
-    # Create a summary DataFrame for overall metrics
     totals_df = pd.DataFrame({
         'report_date': [today],
         'total_sales': [total_sales],

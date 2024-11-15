@@ -10,13 +10,6 @@ if 'test' not in globals():
 
 @data_loader
 def load_data_from_mssql(*args, **kwargs):
-    """
-    Template for loading data from a MSSQL database.
-    Specify your configuration settings in 'io_config.yaml'.
-    Set the following in your io_config:
-
-    Docs: https://docs.mage.ai/integrations/databases/MicrosoftSQLServer
-    """
 
     today = '2016-05-31'
 
@@ -36,7 +29,8 @@ def load_data_from_mssql(*args, **kwargs):
     FROM Sales.Invoices as i
     INNER JOIN Sales.InvoiceLines as il ON i.InvoiceID = il.InvoiceID
     WHERE i.InvoiceDate >= DATEADD(day, -1, CAST('{today}' AS Date))
-    '''  # Specify your SQL query here
+    '''
+    
     config_path = path.join(get_repo_path(), 'io_config.yaml')
     config_profile = 'default'
 
